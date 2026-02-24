@@ -1,11 +1,12 @@
 import "./App.css";
 import MovieCard from "./components/MovieCard";
+import Home from "./pages/Home";
+import Favorite from "./pages/Favorites";
 
 function App() {
   return (
     <>
-      <MovieCard movie={{ title: "Ryle's Film", release_date: "2025" }} />
-      <MovieCard movie={{ title: "Glavine's Film", release_date: "2025" }} />
+      <Home />
     </>
   );
 }
