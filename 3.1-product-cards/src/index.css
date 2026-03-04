@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.products-grid{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
+
+.products {
+  flex: 1 1 350px;
+  border: 1px solid hsl(0, 0%, 50%);
+  border-radius: 15px;
+  padding: 10px;
+  max-width: 350px;
+  box-shadow: 2px 2px 5px hsla(0, 0%, 40%, 0.829);
+  font-family:'Courier New', Courier, monospace;
+}
+
+.products h3, 
+.products p {
+  margin: 5px;
+}
+
