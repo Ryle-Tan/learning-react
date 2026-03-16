@@ -1,58 +1,70 @@
-function List() {
-  const fruits = [
-    { id: 1, name: "apple", calories: 95 },
-    { id: 2, name: "orange", calories: 45 },
-    { id: 3, name: "banana", calories: 105 },
-    { id: 4, name: "coconut", calories: 159 },
-    { id: 5, name: "pineapple", calories: 37 },
-  ];
+import PropTypes from 'prop-types'
+
+
+function List({ items = [], category = "Category" }) {
+
 
   // SORT
-  // fruits.sort((a, b) => a.name.localeCompare(b.name)); ALPHABETICAL
-  // fruits.sort((a, b) => b.name.localeCompare(a.name)); REVERSE ALPHABETICAL
-  // fruits.sort((a, b) => a.calories - b.calories) ASCENDING NUMERIC
-  // fruits.sort((a, b) => b.calories - a.calories) // DESCENDING NUMERIC
+  // items.sort((a, b) => a.name.localeCompare(b.name)); ALPHABETICAL
+  // items.sort((a, b) => b.name.localeCompare(a.name)); REVERSE ALPHABETICAL
+  // items.sort((a, b) => a.calories - b.calories) ASCENDING NUMERIC
+  // items.sort((a, b) => b.calories - a.calories) // DESCENDING NUMERIC
 
   // FILTER
-  const lowCalFruits = fruits.filter(fruit => fruit.calories < 100);
-  const highCalFruits = fruits.filter((fruit) => fruit.calories > 100);
+  const lowCalFoods = items.filter(food => food.calories < 100);
+  const highCalFoods = items.filter((food) => food.calories > 100);
 
   // LIST ALL FRUITS
-  const listItems = fruits.map((fruit) => (
-    <li key={fruit.id}>
-      {fruit.name}: &nbsp;
-      <b>{fruit.calories}</b>
+  const listItems = items.map((food) => (
+    <li key={food.id}>
+      {food.name}: &nbsp;
+      <b>{food.calories}</b>
     </li>
   ));
 
   // LIST LOW CAL FRUITS
-  const lowCalList = lowCalFruits.map((lowCalFruit) => (
-    <li key={lowCalFruit.id}>
-      {lowCalFruit.name}: &nbsp;
-      {lowCalFruit.calories}
+  const lowCalList = lowCalFoods.map((lowCalFood) => (
+    <li key={lowCalFood.id}>
+      {lowCalFood.name}: &nbsp;
+      {lowCalFood.calories}
     </li>
   ));
 
   // LIST HIGH CAL FRUITS
-  const highCalList = highCalFruits.map((highCalFruit) => (
-    <li key={highCalFruit.id}>
-      {highCalFruit.name}: &nbsp;
-      {highCalFruit.calories}
+  const highCalList = highCalFoods.map((highCalFood) => (
+    <li key={highCalFood.id}>
+      {highCalFood.name}: &nbsp;
+      {highCalFood.calories}
     </li>
   ));
 
   return (
     <>
-      <h2>List All Fruits</h2>
-      <ol>{listItems}</ol>
+      <h1 className="list-category">{category}</h1>
+      <h2 className="list-calorie-category">List All {category}</h2>
+      <ol className="list-items">{listItems}</ol>
 
-      <h2>List Low Cal Fruits</h2>
-      <ol>{lowCalList}</ol>
+      <h2 className="list-calorie-category">List Low Cal {category}</h2>
+      <ol className="list-items">{lowCalList}</ol>
 
-      <h2>List High Cal Fruits</h2>
-      <ol>{highCalList}</ol>
+      <h2 className="list-calorie-category">List High Cal {category}</h2>
+      <ol className="list-items">{highCalList}</ol>
     </>
   );
+}
+
+
+List.propTypes = {
+  category: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      calories: PropTypes.number,
+    })
+  )
+
+
 }
 
 export default List;

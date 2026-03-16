@@ -1,0 +1,35 @@
+.list-category{
+    font-size: 2.5em;
+    font-weight: bold;
+    color: hsla(0, 0%, 20%);
+    margin-bottom: 10px;
+    text-align: center;
+    border: 3px solid;
+    border-radius: 5px;
+    background-color: hsl(178, 84%, 56%);
+    font-family: sans-serif ;
+    padding: 10px;
+}
+
+.list-calorie-category{
+    font-size: 2em;
+    font-family: sans-serif;
+    color: hsla(0, 0%, 25%);
+    margin: 0;
+    text-align: center;
+}
+
+.list-items li {
+    font-size: 1.5em;
+    font-family: sans-serif;
+    list-style: none;
+    color: hsla(0, 0%, 30%);
+    margin: 0px;
+    text-align: center;
+
+}
+
+.list-items li:hover{
+    color: hsla(0, 0%, 45%);
+    cursor: pointer;
+}
